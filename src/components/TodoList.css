@@ -1,0 +1,15 @@
+.todo-group{
+    display: block;
+    unicode-bidi: isolate;
+    padding: 40px;
+    background-color: ivory;
+}
+.todo-item{
+    display: block;
+    unicode-bidi: isolate;
+    margin: 10px;
+    background-color: cornsilk;
+    &.done{
+        text-decoration: line-through;
+    }
+}
