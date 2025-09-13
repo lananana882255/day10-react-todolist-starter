@@ -1,15 +1,29 @@
-.todo-group{
-    display: block;
+.todo-group {
+    display: flex;
+    flex-direction: column;
     unicode-bidi: isolate;
     padding: 40px;
+    height: auto;
     background-color: ivory;
+    align-items: center;
 }
-.todo-item{
+
+.todo-item {
     display: block;
     unicode-bidi: isolate;
     margin: 10px;
+    width: 600px;
+    min-height: 40px;
+    align-content: center;
     background-color: cornsilk;
-    &.done{
+    word-wrap: break-word;
+    white-space: normal;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border: 2px cadetblue solid;
+
+    &.done {
         text-decoration: line-through;
     }
 }
