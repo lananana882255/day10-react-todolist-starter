@@ -10,6 +10,11 @@ const TodoList = () => {
         dispatch(action)
     }
 
+    function toggleDelete(id) {
+        const action = {type: 'DELETE', id: id}
+        dispatch(action)
+    }
+
     return (
         <div className={'todo-group'}>
             <h1>Todo List</h1>
@@ -17,7 +22,7 @@ const TodoList = () => {
                 state.map(({id, text, done}) => {
                     return <div>
                         <div className={`todo-item ${done ? 'done' : ''}`} onClick={() => toggleDone(id)}>{text}</div>
-                        <button>x</button>
+                        <button className={'delete'} onClick={()=>toggleDelete(id)}>Delete</button>
                     </div>
                 })
             }

@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     unicode-bidi: isolate;
-    padding: 40px;
     height: auto;
     width:100%;
     align-items: center;
@@ -22,11 +21,21 @@
     align-items: center;
     justify-content: center;
     border: 2px cadetblue solid;
+    border-radius: 12px;
 
     &.done {
         text-decoration: line-through;
     }
 }
+
+.delete{
+    background-color: cadetblue;
+    height: 30px;
+    padding: 10px;
+    border-radius: 8px;
+    color: cornsilk;
+}
+
 div{
     display: flex;
     align-items: center;
