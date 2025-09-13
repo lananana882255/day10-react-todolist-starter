@@ -15,7 +15,10 @@ const TodoList = () => {
             <h1>Todo List</h1>
             {
                 state.map(({id, text, done}) => {
-                    return <div className={`todo-item ${done? 'done':''}`} onClick={() => toggleDone(id)}>{text}</div>
+                    return <div>
+                        <div className={`todo-item ${done ? 'done' : ''}`} onClick={() => toggleDone(id)}>{text}</div>
+                        <button>x</button>
+                    </div>
                 })
             }
         </div>
