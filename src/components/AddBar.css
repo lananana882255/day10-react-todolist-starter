@@ -2,8 +2,9 @@
     border-radius: 12px;
     background-color: cornsilk;
     width: 550px;
-    border: 2px cadetblue solid;
+    border: 2px black solid;
     height: 40px;
+    padding-left: 10px;
 }
 
 .add-bar-container {

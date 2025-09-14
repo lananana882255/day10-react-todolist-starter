@@ -20,7 +20,7 @@ export function AddBar(props) {
 
     return (
         <div className={'add-bar-container'}>
-            <input  className={'input-todo'} type="text" value={todo} onInput={handleInput} onKeyDown={handleKeyDown}/>
+            <input  placeholder={'please input todo...'} className={'input-todo'} type="text" value={todo} onInput={handleInput} onKeyDown={handleKeyDown}/>
             <button className={'add-todo'} onClick={handleClick}>Add</button>
         </div>
     );

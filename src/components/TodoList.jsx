@@ -17,7 +17,6 @@ const TodoList = () => {
 
     return (
         <div className={'todo-group'}>
-            <h1>Todo List</h1>
             {
                 state.length < 1 ?
                     (<p>Add the things you need to do today...</p>) :
@@ -25,7 +24,7 @@ const TodoList = () => {
                         return <div className={'todo-item-container'}>
                             <div className={`todo-item ${done ? 'done' : ''}`}
                                  onClick={() => toggleDone(id)}>{text}</div>
-                            <button className={'delete'} onClick={() => toggleDelete(id)}>Delete</button>
+                            <button className={'delete'} onClick={() => toggleDelete(id)}>X</button>
                         </div>
                     }))
             }

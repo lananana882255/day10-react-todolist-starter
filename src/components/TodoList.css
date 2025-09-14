@@ -20,7 +20,7 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    border: 2px cadetblue solid;
+    border: 2px black solid;
     border-radius: 12px;
 
     &.done {
