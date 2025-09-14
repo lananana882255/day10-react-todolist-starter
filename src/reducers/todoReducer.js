@@ -20,7 +20,7 @@ export const todoReducer = (state, action) => {
                 return [...state,
             {id:state.length+1,text:action.text,done:false}]
             case 'DELETE':
-                return state.filter(todo=>todo.id!=action.id)
+                return state.filter(todo=>todo.id!==action.id)
         }
         return state;
     }

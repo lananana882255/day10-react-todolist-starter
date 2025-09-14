@@ -29,15 +29,21 @@
 }
 
 .delete{
-    background-color: cadetblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rosybrown;
     height: 30px;
     padding: 10px;
     border-radius: 8px;
     color: cornsilk;
+    border: rosybrown;
 }
 
-div{
+.todo-item-container{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    margin: 12px 0;
 }

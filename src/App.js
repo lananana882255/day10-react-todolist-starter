@@ -9,7 +9,7 @@ function App() {
     // the Hooks API manage component data state
     const [state, dispatch] = useReducer(todoReducer, initialState);
     const value = {state, dispatch}
-    function handleAddTodo(todo){
+    function toggleAdd(todo){
         dispatch({type:'ADD',text:todo})
     }
     return (
@@ -17,7 +17,7 @@ function App() {
             <TodoContext.Provider value={value}>
                 <TodoList/>
             </TodoContext.Provider>
-            <AddBar onChange={handleAddTodo}></AddBar>
+            <AddBar onChange={toggleAdd}></AddBar>
         </div>
     );
 }

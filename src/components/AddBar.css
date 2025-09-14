@@ -1,0 +1,28 @@
+.input-todo {
+    border-radius: 12px;
+    background-color: cornsilk;
+    width: 550px;
+    border: 2px cadetblue solid;
+    height: 40px;
+}
+
+.add-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.add-todo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: cadetblue;
+    height: 30px;
+    padding: 10px;
+    border-radius: 8px;
+    color: cornsilk;
+    border: cadetblue;
+    margin-left: 15px;
+}

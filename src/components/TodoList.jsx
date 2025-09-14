@@ -19,15 +19,17 @@ const TodoList = () => {
         <div className={'todo-group'}>
             <h1>Todo List</h1>
             {
-                state.map(({id, text, done}) => {
-                    return <div>
-                        <div className={`todo-item ${done ? 'done' : ''}`} onClick={() => toggleDone(id)}>{text}</div>
-                        <button className={'delete'} onClick={()=>toggleDelete(id)}>Delete</button>
-                    </div>
-                })
+                state.length < 1 ?
+                    (<p>Add the things you need to do today...</p>) :
+                    (state.map(({id, text, done}) => {
+                        return <div className={'todo-item-container'}>
+                            <div className={`todo-item ${done ? 'done' : ''}`}
+                                 onClick={() => toggleDone(id)}>{text}</div>
+                            <button className={'delete'} onClick={() => toggleDelete(id)}>Delete</button>
+                        </div>
+                    }))
             }
         </div>
-
     );
 }
 
