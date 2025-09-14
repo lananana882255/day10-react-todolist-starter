@@ -3,7 +3,7 @@ import './AddBar.css'
 export function AddBar(props) {
     const [todo, setTodo] = useState('');
 
-    function handleClick(event) {
+    function handleClick() {
         setTodo('');
         if(todo!==''){ props.onChange(todo);}
     }
@@ -12,9 +12,15 @@ export function AddBar(props) {
         setTodo(event.target.value);
     }
 
+    function handleKeyDown(event) {
+        if (event.key === 'Enter') {
+            handleClick()
+        }
+    }
+
     return (
         <div className={'add-bar-container'}>
-            <input  className={'input-todo'} type="text" value={todo} onInput={handleInput}/>
+            <input  className={'input-todo'} type="text" value={todo} onInput={handleInput} onKeyDown={handleKeyDown}/>
             <button className={'add-todo'} onClick={handleClick}>Add</button>
         </div>
     );
