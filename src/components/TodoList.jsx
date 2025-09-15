@@ -14,10 +14,10 @@ const TodoList = () => {
     const [editId,setEditId]=useState(0);
     const toggleDone = async (id) => {
         const action = {type: 'DONE', id: id}
-        dispatch(action)
         const doneTodo = state.find(todo => todo.id === id)
         const newTodo = {...doneTodo, done: !doneTodo.done}
         const response = await changeTodo(id, newTodo)
+        dispatch(action)
     }
 
     const toggleDelete = async (id) => {

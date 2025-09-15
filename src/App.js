@@ -1,14 +1,13 @@
 import './App.css';
-import {createBrowserRouter, RouterProvider, useParams} from "react-router";
+import {createBrowserRouter, RouterProvider} from "react-router";
 import {ErrorPage} from "./components/ErrorPage";
 import {Todo} from "./components/Todo";
 import {DefaultLayout} from "./Layout/DefaultLayout";
-
-function TodoDetail() {
-    const {key}=useParams();
-    console.log(key);
-    return <h1>this is: {key} detail</h1>;
-}
+import {TodoDetail} from "./components/TodoDetail";
+import {DoneTodo} from "./components/DoneTodo";
+import {useReducer} from "react";
+import {initialState, todoReducer} from "./reducers/todoReducer";
+import {TodoContext} from "./contexts/TodoContext";
 
 const routes = [{
     path: '/',
@@ -30,15 +29,23 @@ const routes = [{
         {
             path: 'todos/:key',
             element: <TodoDetail/>
+        },
+        {
+            path: 'done',
+            element: <DoneTodo/>
         }]
 }];
 const router = createBrowserRouter(routes);
 
 function App() {
+    const [state, dispatch] = useReducer(todoReducer, initialState);
+    const value = {state, dispatch}
     // the Hooks API manage component data state
     return (
         <div className="App">
-            <RouterProvider router={router}></RouterProvider>
+            <TodoContext.Provider value={value}>
+                <RouterProvider router={router}></RouterProvider>
+            </TodoContext.Provider>
         </div>
     );
 }

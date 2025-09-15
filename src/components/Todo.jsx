@@ -1,13 +1,11 @@
-import {useEffect, useReducer} from "react";
-import {initialState, todoReducer} from "../reducers/todoReducer";
-import {TodoContext} from "../contexts/TodoContext";
+import {useContext, useEffect, useReducer} from "react";
 import TodoList from "./TodoList";
 import {AddBar} from "./AddBar";
 import {getTodos} from "../apis/api";
+import {TodoContext} from "../contexts/TodoContext";
 
 export function Todo() {
-    const [state, dispatch] = useReducer(todoReducer, initialState);
-    const value = {state, dispatch}
+    const {state, dispatch} = useContext(TodoContext)
     useEffect(() => {
         getTodos().then(response=>{
             dispatch({type:'LOAD_TODOS',todos:response.data})
@@ -19,9 +17,7 @@ export function Todo() {
 
     return <>
         <h1>Todo List</h1>
-        <TodoContext.Provider value={value}>
-            <TodoList/>
-        </TodoContext.Provider>
+        <TodoList/>
         <AddBar onChange={toggleAdd}></AddBar>
     </>;
 }

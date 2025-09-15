@@ -1,0 +1,24 @@
+.todo-item {
+    display: block;
+    unicode-bidi: isolate;
+    margin: 10px;
+    width: 600px;
+    min-height: 40px;
+    align-content: center;
+    background-color: cornsilk;
+    word-wrap: break-word;
+    white-space: normal;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border: 2px black solid;
+    border-radius: 12px;
+}
+
+.todo-item-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 12px 0;
+}
