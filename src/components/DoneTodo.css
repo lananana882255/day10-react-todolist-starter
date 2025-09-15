@@ -15,7 +15,7 @@
     border-radius: 12px;
 }
 
-.todo-item-container{
+.todo-item-container {
     display: flex;
     align-items: center;
     justify-content: center;

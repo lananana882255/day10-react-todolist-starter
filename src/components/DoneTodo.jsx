@@ -7,7 +7,7 @@ export function DoneTodo() {
     return <div>
         {
             doneTodos.length < 1 ?
-                (<p>Add the things you need to do today...</p>) :
+                (<h2>No completed todo found...</h2>) :
                 (doneTodos.map(({id, text, done}) => {
                     return <div className={'todo-item-container'}>
                         <div className={'todo-item'}>{text}</div>

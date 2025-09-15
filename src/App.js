@@ -16,8 +16,8 @@ const routes = [{
     errorElement: <ErrorPage></ErrorPage>,
     children: [
         {
-        path: '/',
-        element: <h1>Home page</h1>,
+            path: '/',
+            element: <h1>Home page</h1>,
         },
         {
             path: 'about',
@@ -42,8 +42,8 @@ function App() {
     const [state, dispatch] = useReducer(todoReducer, initialState);
     const value = {state, dispatch}
     useEffect(() => {
-        getTodos().then(response=>{
-            dispatch({type:'LOAD_TODOS',todos:response.data})
+        getTodos().then(response => {
+            dispatch({type: 'LOAD_TODOS', todos: response.data})
         })
     }, []);
     // the Hooks API manage component data state

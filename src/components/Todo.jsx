@@ -1,7 +1,6 @@
-import {useContext, useEffect, useReducer} from "react";
+import {useContext} from "react";
 import TodoList from "./TodoList";
 import {AddBar} from "./AddBar";
-import {getTodos} from "../apis/api";
 import {TodoContext} from "../contexts/TodoContext";
 
 export function Todo() {

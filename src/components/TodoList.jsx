@@ -2,7 +2,7 @@ import {useContext, useState} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import './TodoList.css'
 import {changeTodo, deleteTodo} from "../apis/api";
-import {message} from "antd";
+import {Button, message} from "antd";
 import {DeleteOutlined, EditOutlined} from "@ant-design/icons";
 
 import {EditModal} from "./EditModal";
@@ -11,12 +11,15 @@ import {EditModal} from "./EditModal";
 const TodoList = () => {
     const {state, dispatch} = useContext(TodoContext)
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [editId,setEditId]=useState(0);
+    const [editId, setEditId] = useState(0);
     const toggleDone = async (id) => {
         const action = {type: 'DONE', id: id}
         const doneTodo = state.find(todo => todo.id === id)
         const newTodo = {...doneTodo, done: !doneTodo.done}
         const response = await changeTodo(id, newTodo)
+        if (newTodo.done) {
+            message.success('Congratulaions!')
+        }
         dispatch(action)
     }
 
@@ -34,25 +37,25 @@ const TodoList = () => {
 
     function handleOk() {
         setIsModalOpen(false);
-
     }
 
     function handleCancel() {
         setIsModalOpen(false);
-
     }
 
     return (
         <div className={'todo-group'}>
             {
                 state.length < 1 ?
-                    (<p>Add the things you need to do today...</p>) :
+                    (<h2>Add the things you need to do today...</h2>) :
                     (state.map(({id, text, done}) => {
                         return <div className={'todo-item-container'}>
                             <div className={`todo-item ${done ? 'done' : ''}`}
                                  onClick={() => toggleDone(id)}>{text}</div>
-                            <EditOutlined onClick={() => toggleEdit(id)}>Edit</EditOutlined>
-                            <DeleteOutlined onClick={() => toggleDelete(id)}>X</DeleteOutlined>
+                            <Button type="text" style={{fontSize: '18px'}} icon={<EditOutlined/>}
+                                    onClick={() => toggleEdit(id)} className="todo-action-btn"></Button>
+                            <Button type="text" danger style={{fontSize: '18px'}} icon={<DeleteOutlined/>}
+                                    onClick={() => toggleDelete(id)} className="todo-action-btn"></Button>
                         </div>
                     }))
             }

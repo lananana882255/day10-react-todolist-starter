@@ -9,8 +9,8 @@ import {CheckCircleOutlined, ClockCircleOutlined} from "@ant-design/icons";
 export function TodoDetail() {
     const {key} = useParams();
     const {state, dispatch} = useContext(TodoContext)
-    const targetTodo=state.find(todo=>todo.id===key)
-    if(!targetTodo){
+    const targetTodo = state.find(todo => todo.id === key)
+    if (!targetTodo) {
         return <ErrorPage></ErrorPage>
     }
 
@@ -26,11 +26,11 @@ export function TodoDetail() {
                 </Descriptions.Item>
                 <Descriptions.Item label="Status">
                     {targetTodo.done ? (
-                        <Tag icon={<CheckCircleOutlined />} color="success">
+                        <Tag icon={<CheckCircleOutlined/>} color="success">
                             DONE
                         </Tag>
                     ) : (
-                        <Tag icon={<ClockCircleOutlined />} color="processing">
+                        <Tag icon={<ClockCircleOutlined/>} color="processing">
                             PENDING
                         </Tag>
                     )}
