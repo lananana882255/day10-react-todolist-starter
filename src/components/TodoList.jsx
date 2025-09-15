@@ -1,13 +1,17 @@
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import './TodoList.css'
 import {changeTodo, deleteTodo} from "../apis/api";
 import {message} from "antd";
-import {DeleteOutlined} from "@ant-design/icons";
+import {DeleteOutlined, EditOutlined} from "@ant-design/icons";
+
+import {EditModal} from "./EditModal";
+
 
 const TodoList = () => {
     const {state, dispatch} = useContext(TodoContext)
-
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [editId,setEditId]=useState(0);
     const toggleDone = async (id) => {
         const action = {type: 'DONE', id: id}
         dispatch(action)
@@ -22,6 +26,21 @@ const TodoList = () => {
         const response = await deleteTodo(id).then(message.success('Delete todo successfully!'))
     }
 
+    function toggleEdit(id) {
+        setEditId(id);
+        setIsModalOpen(true);
+    }
+
+    function handleOk() {
+        setIsModalOpen(false);
+
+    }
+
+    function handleCancel() {
+        setIsModalOpen(false);
+
+    }
+
     return (
         <div className={'todo-group'}>
             {
@@ -31,10 +50,12 @@ const TodoList = () => {
                         return <div className={'todo-item-container'}>
                             <div className={`todo-item ${done ? 'done' : ''}`}
                                  onClick={() => toggleDone(id)}>{text}</div>
-                            <button className={'delete'} onClick={() => toggleDelete(id)}>X</button>
+                            <EditOutlined onClick={() => toggleEdit(id)}>Edit</EditOutlined>
+                            <DeleteOutlined onClick={() => toggleDelete(id)}>X</DeleteOutlined>
                         </div>
                     }))
             }
+            <EditModal value={editId} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}/>
         </div>
     );
 }
