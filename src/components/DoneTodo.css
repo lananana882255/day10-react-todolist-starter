@@ -13,6 +13,11 @@
     justify-content: center;
     border: 2px black solid;
     border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.09);
+}
+.todo-item:hover {
+    background-color: cornsilk;
+    transform: scale(1.05);
 }
 
 .todo-item-container {
