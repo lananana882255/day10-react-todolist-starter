@@ -1,5 +1,5 @@
 export function ErrorPage() {
     return <>
-        <h1>Error Page</h1>
+        <h1>404 NOT FOUND</h1>
     </>;
 }

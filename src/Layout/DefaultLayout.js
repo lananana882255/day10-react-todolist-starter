@@ -1,19 +1,32 @@
 import {NavLink, Outlet} from "react-router";
+import {Content, Footer, Header} from "antd/es/layout/layout";
+import {Layout, Menu} from "antd";
+import React from "react";
+import {HomeOutlined} from "@ant-design/icons"
 
 export function DefaultLayout() {
-    return <>
-        <header>
-            <nav>
-                <ul>
-                    <li><NavLink to={'/'}>Home</NavLink></li>
-                    <li><NavLink to={'todos'}>todos</NavLink></li>
-                    <li><NavLink to={'about'}>About</NavLink></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
+    const items=[{
+        key:'Home',
+        label:<NavLink to={'/'}>Home</NavLink>,
+        icon:<HomeOutlined />
+    },
+        {
+            key:'todos',
+            label:<NavLink to={'todos'}>todos</NavLink>
+        },
+        {
+            key:'about',
+            label:<NavLink to={'about'}>about</NavLink>
+        },]
+    return <Layout>
+
+        <Header >
+            <Menu theme="dark"
+                  mode="horizontal" items={items}></Menu>
+        </Header>
+        <Content>
             <Outlet></Outlet>
-        </main>
-        <footer>copyright</footer>
-    </>;
+        </Content>
+        <Footer>copyright</Footer>
+    </Layout>;
 }

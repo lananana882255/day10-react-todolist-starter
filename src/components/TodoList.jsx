@@ -2,22 +2,24 @@ import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import './TodoList.css'
 import {changeTodo, deleteTodo} from "../apis/api";
+import {message} from "antd";
+import {DeleteOutlined} from "@ant-design/icons";
 
 const TodoList = () => {
     const {state, dispatch} = useContext(TodoContext)
 
-    const toggleDone=async(id) =>{
+    const toggleDone = async (id) => {
         const action = {type: 'DONE', id: id}
         dispatch(action)
-        const doneTodo=state.find(todo=>todo.id===id)
+        const doneTodo = state.find(todo => todo.id === id)
         const newTodo = {...doneTodo, done: !doneTodo.done}
-        const response=await changeTodo(id,newTodo)
+        const response = await changeTodo(id, newTodo)
     }
 
-    const toggleDelete=async (id) =>{
+    const toggleDelete = async (id) => {
         const action = {type: 'DELETE', id: id}
         dispatch(action)
-        const response=await deleteTodo(id)
+        const response = await deleteTodo(id).then(message.success('Delete todo successfully!'))
     }
 
     return (
