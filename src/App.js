@@ -2,7 +2,7 @@ import './App.css';
 import {createBrowserRouter, RouterProvider, useParams} from "react-router";
 import {ErrorPage} from "./components/ErrorPage";
 import {Todo} from "./components/Todo";
-import {DefaultLayout} from "./components/DefaultLayout";
+import {DefaultLayout} from "./Layout/DefaultLayout";
 
 function TodoDetail() {
     const {key}=useParams();
