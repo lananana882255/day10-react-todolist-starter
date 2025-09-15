@@ -23,7 +23,8 @@ const TodoList = () => {
     const toggleDelete = async (id) => {
         const action = {type: 'DELETE', id: id}
         dispatch(action)
-        const response = await deleteTodo(id).then(message.success('Delete todo successfully!'))
+        const response = await deleteTodo(id);
+        message.success('Delete todo successfully!')
     }
 
     function toggleEdit(id) {

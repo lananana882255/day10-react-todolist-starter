@@ -10,8 +10,9 @@ export function AddBar(props) {
     const handleClick = async () => {
         if (todo !== '' && todo.trim() !== '') {
             const newTodo = {done: false, text: todo}
-            const response = await addTodo(newTodo).then(message.success('Add todo successfully!'))
-            props.onChange(todo);
+            const response = await addTodo(newTodo);
+            props.onChange(response.data);
+            message.success('Add todo successfully!')
         }
         setTodo('');
 
