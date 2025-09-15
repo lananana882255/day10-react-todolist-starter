@@ -1,8 +1,8 @@
 import todoList from "../components/TodoList";
 
 export const initialState = [
-    {id: 1, text: "the first todo", done: false},
-    {id: 2, text: "the second todo", done: false},
+    // {id: 1, text: "the first todo", done: false},
+    // {id: 2, text: "the second todo", done: false},
 ];
 
 // reducer is a pure function that define and gather all state update logic
@@ -21,6 +21,8 @@ export const todoReducer = (state, action) => {
             {id:state.length+1,text:action.text,done:false}]
             case 'DELETE':
                 return state.filter(todo=>todo.id!==action.id)
+            case 'LOAD_TODOS':
+                return action.todos
         }
         return state;
     }

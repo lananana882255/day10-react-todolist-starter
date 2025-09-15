@@ -1,18 +1,23 @@
 import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import './TodoList.css'
+import {changeTodo, deleteTodo} from "../apis/api";
 
 const TodoList = () => {
     const {state, dispatch} = useContext(TodoContext)
 
-    function toggleDone(id) {
+    const toggleDone=async(id) =>{
         const action = {type: 'DONE', id: id}
         dispatch(action)
+        const doneTodo=state.find(todo=>todo.id===id)
+        const newTodo = {...doneTodo, done: !doneTodo.done}
+        const response=await changeTodo(id,newTodo)
     }
 
-    function toggleDelete(id) {
+    const toggleDelete=async (id) =>{
         const action = {type: 'DELETE', id: id}
         dispatch(action)
+        const response=await deleteTodo(id)
     }
 
     return (

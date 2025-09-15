@@ -1,11 +1,16 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import './AddBar.css'
+import {addTodo} from "../apis/api";
 export function AddBar(props) {
     const [todo, setTodo] = useState('');
 
-    function handleClick() {
+    const handleClick= async()=> {
+        if(todo!==''){
+            const newTodo={done:false,text:todo}
+            const response=await addTodo(newTodo)
+            props.onChange(todo);
+        }
         setTodo('');
-        if(todo!==''){ props.onChange(todo);}
     }
 
     function handleInput(event) {
@@ -20,7 +25,7 @@ export function AddBar(props) {
 
     return (
         <div className={'add-bar-container'}>
-            <input  placeholder={'please input todo...'} className={'input-todo'} type="text" value={todo} onInput={handleInput} onKeyDown={handleKeyDown}/>
+            <input  placeholder={'please input todo...'} className={'input-todo'} type="text" value={todo} onChange={handleInput} onKeyDown={handleKeyDown}/>
             <button className={'add-todo'} onClick={handleClick}>Add</button>
         </div>
     );
