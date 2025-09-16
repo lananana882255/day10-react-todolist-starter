@@ -33,8 +33,8 @@ export function EditModal(props)  {
         return;
     }
     return <Modal  open={props.open} onOk={handleSave}
-                      onCancel={handleCancel}>
+                   onCancel={handleCancel}>
         <h2>{targetTodo.text}</h2>
-            <Input placeholder="Edit your todo..." value={editText} onChange={(e)=>setEditText(e.target.value)} onPressEnter={handleSave}></Input>
-        </Modal>;
+        <Input placeholder="Edit your todo..." value={editText} onChange={(e)=>setEditText(e.target.value)} onPressEnter={handleSave}></Input>
+    </Modal>;
 }
