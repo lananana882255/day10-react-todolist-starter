@@ -5,28 +5,28 @@ import React from "react";
 import {HomeOutlined} from "@ant-design/icons"
 
 export function DefaultLayout() {
-    const items=[
+    const items = [
         {
-        key:'Home',
-        label:<NavLink to={'/'}>Home</NavLink>,
-        icon:<HomeOutlined />
+            key: 'Home',
+            label: <NavLink to={'/'}>Home</NavLink>,
+            icon: <HomeOutlined/>
         },
         {
-            key:'todos',
-            label:<NavLink to={'todos'}>Todos</NavLink>
+            key: 'todos',
+            label: <NavLink to={'todos'}>Todos</NavLink>
         },
         {
-            key:'done',
-            label:<NavLink to={'done'}>Done</NavLink>
+            key: 'done',
+            label: <NavLink to={'done'}>Done</NavLink>
         },
         {
-            key:'about',
-            label:<NavLink to={'about'}>About</NavLink>
+            key: 'about',
+            label: <NavLink to={'about'}>About</NavLink>
         },
-        ]
+    ]
     return <Layout>
 
-        <Header >
+        <Header>
             <Menu theme="dark"
                   mode="horizontal" items={items}></Menu>
         </Header>

@@ -13,7 +13,7 @@ const TodoList = () => {
     const {state, dispatch} = useContext(TodoContext)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editId, setEditId] = useState(0);
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     const toggleDone = async (id) => {
         const action = {type: 'DONE', id: id}
         const doneTodo = state.find(todo => todo.id === id)
@@ -54,10 +54,12 @@ const TodoList = () => {
                         return <div className={'todo-item-container'}>
                             <div className={`todo-item ${done ? 'done' : ''}`}
                                  onClick={() => toggleDone(id)}>{text}</div>
-                            <Button type="text" style={{fontSize: '18px',marginLeft:'5px'}} icon={<EditOutlined/>}
+                            <Button type="text" style={{fontSize: '18px', marginLeft: '5px'}} icon={<EditOutlined/>}
                                     onClick={() => toggleEdit(id)} className="todo-action-btn"></Button>
-                            <SnippetsOutlined style={{fontSize: '18px',marginLeft:'5px'}} onClick={()=>navigate(`/todos/${id}`)}>> </SnippetsOutlined>
-                            <Button type="text" danger style={{fontSize: '18px',marginLeft:'5px'}} icon={<DeleteOutlined/>}
+                            <SnippetsOutlined style={{fontSize: '18px', marginLeft: '5px'}}
+                                              onClick={() => navigate(`/todos/${id}`)}>> </SnippetsOutlined>
+                            <Button type="text" danger style={{fontSize: '18px', marginLeft: '5px'}}
+                                    icon={<DeleteOutlined/>}
                                     onClick={() => toggleDelete(id)} className="todo-action-btn"></Button>
                         </div>
                     }))

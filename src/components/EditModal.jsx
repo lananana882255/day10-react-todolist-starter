@@ -4,21 +4,21 @@ import {TodoContext} from "../contexts/TodoContext";
 import {changeTodo} from "../apis/api";
 import Input from "antd/es/input/Input";
 
-export function EditModal(props)  {
+export function EditModal(props) {
     const {state, dispatch} = useContext(TodoContext)
     const [editText, setEditText] = useState('');
-    const targetTodo=state.find(todo=>todo.id===props.value);
+    const targetTodo = state.find(todo => todo.id === props.value);
     useEffect(() => {
         if (targetTodo) {
             setEditText(targetTodo.text);
         }
     }, [targetTodo, props.open]);
 
-    const handleSave=async ()=> {
-        if(editText.trim()!==''){
-            dispatch({type:'EDIT',id:props.value,text:editText});
-            const updateTodo={...targetTodo,text:editText}
-            await changeTodo(props.value,updateTodo);
+    const handleSave = async () => {
+        if (editText.trim() !== '') {
+            dispatch({type: 'EDIT', id: props.value, text: editText});
+            const updateTodo = {...targetTodo, text: editText}
+            await changeTodo(props.value, updateTodo);
             message.success('Update todo successfully!')
             props.onOk();
         }
@@ -29,12 +29,13 @@ export function EditModal(props)  {
         props.onCancel();
     }
 
-    if(!targetTodo){
+    if (!targetTodo) {
         return;
     }
-    return <Modal  open={props.open} onOk={handleSave}
-                   onCancel={handleCancel}>
+    return <Modal open={props.open} onOk={handleSave}
+                  onCancel={handleCancel}>
         <h2>{targetTodo.text}</h2>
-        <Input placeholder="Edit your todo..." value={editText} onChange={(e)=>setEditText(e.target.value)} onPressEnter={handleSave}></Input>
+        <Input placeholder="Edit your todo..." value={editText} onChange={(e) => setEditText(e.target.value)}
+               onPressEnter={handleSave}></Input>
     </Modal>;
 }

@@ -43,10 +43,10 @@ instance.interceptors.response.use(
 
         console.log(error)
         const {status, data} = error.response
-        if(status===404){
+        if (status === 404) {
             alert(`response Error ${status} ${data}`)
         }
-        if(status===422){
+        if (status === 422) {
             alert(`response Error ${status} ${data}`)
         }
         return Promise.reject(error)

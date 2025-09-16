@@ -1,9 +1,10 @@
 .App {
-  text-align: center;
-  width: 100%;
-  height: auto;
-  display: block;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    display: block;
 }
-h1{
-  color: darkslategrey;
+
+h1 {
+    color: darkslategrey;
 }

@@ -3,7 +3,7 @@
     flex-direction: column;
     unicode-bidi: isolate;
     height: auto;
-    width:100%;
+    width: 100%;
     align-items: center;
 }
 
@@ -34,7 +34,7 @@
     }
 }
 
-.delete{
+.delete {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,7 +46,7 @@
     border: rosybrown;
 }
 
-.todo-item-container{
+.todo-item-container {
     display: flex;
     align-items: center;
     justify-content: center;
