@@ -16,13 +16,14 @@ export function DefaultLayout() {
             label:<NavLink to={'todos'}>Todos</NavLink>
         },
         {
+            key:'done',
+            label:<NavLink to={'done'}>Done</NavLink>
+        },
+        {
             key:'about',
             label:<NavLink to={'about'}>About</NavLink>
         },
-        {
-            key:'done',
-            label:<NavLink to={'done'}>Done</NavLink>
-        }]
+        ]
     return <Layout>
 
         <Header >

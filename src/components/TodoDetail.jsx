@@ -14,8 +14,8 @@ export function TodoDetail() {
         return <ErrorPage></ErrorPage>
     }
 
-    return <div>
-        <Card>
+    return <div style={{display:"flex",justifyContent:'center'}}>
+        <Card style={{minWidth:'300px', width:'50%',maxWidth:'500px'}}>
             <Descriptions bordered column={1}>
                 <Descriptions.Item label="ID">
                     {targetTodo.id}
