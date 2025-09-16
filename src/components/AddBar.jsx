@@ -9,10 +9,22 @@ export function AddBar(props) {
 
     const handleClick = async () => {
         if (todo !== '' && todo.trim() !== '') {
+            try {
+            
             const newTodo = {done: false, text: todo}
             const response = await addTodo(newTodo);
             props.onChange(response.data);
             message.success('Add todo successfully!')
+        }catch (e) {
+                const {status, data} = e.response
+                if(status===400){
+                    message.error(`Todo already existed.`)
+                }
+                if(status===422){
+                    message.error(`Text is empty.`)
+                }
+
+            }
         }
         setTodo('');
 
